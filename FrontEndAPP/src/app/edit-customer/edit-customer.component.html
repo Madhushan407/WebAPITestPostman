@@ -1,0 +1,63 @@
+<div class="example-container mat-elevation-z8">
+    <h2>Edit Customers</h2>
+    <div class="example-loading-shade"
+          *ngIf="isLoadingResults">
+      <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+    <div class="button-row">
+        <a mat-flat-button color="primary" (click)="customersDetails()"><mat-icon>info</mat-icon></a>
+    </div>
+    <mat-card class="example-card">
+      <form [formGroup]="customerForm" (ngSubmit)="onFormSubmit()">
+       
+        <mat-form-field class="example-full-width">
+          <mat-label>Username</mat-label>
+          <input matInput placeholder="Username" formControlName="Username"
+                  [errorStateMatcher]="matcher">
+    
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email" formControlName="Email"
+                    [errorStateMatcher]="matcher">
+  
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>FirstName</mat-label>
+            <input matInput placeholder="FirstName" formControlName="FirstName"
+                    [errorStateMatcher]="matcher">
+  
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>LastName</mat-label>
+            <input matInput placeholder="LastName" formControlName="LastName"
+                    [errorStateMatcher]="matcher">
+
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>CreatedOn</mat-label>
+            <input matInput placeholder="CreatedOn" formControlName="CreatedOn"
+                    [errorStateMatcher]="matcher">
+
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>IsActive</mat-label>
+            <input matInput placeholder="IsActive" formControlName="IsActive"
+                    [errorStateMatcher]="matcher">
+
+          </mat-form-field>
+        
+     
+        
+        <div class="button-row">
+          <button type="submit" mat-flat-button color="primary"><mat-icon>save</mat-icon> Save</button>
+       
+        </div>
+      </form>
+    </mat-card>
+  </div>

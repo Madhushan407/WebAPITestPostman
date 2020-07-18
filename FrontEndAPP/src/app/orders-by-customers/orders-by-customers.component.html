@@ -1,0 +1,66 @@
+<div class="example-container mat-elevation-z8">
+    <h2>Orders By Customers</h2>
+    <div class="example-loading-shade"
+         *ngIf="isLoadingResults">
+      <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+    <div class="button-row">
+     </div>
+   
+      <div >  
+      <table mat-table [dataSource]="data" class="example-table" class="mat-elevation-z8">
+            >
+        <ng-container matColumnDef="Username" class="username">
+          <th mat-header-cell *matHeaderCellDef>UserName</th>
+          <td mat-cell *matCellDef="let row">{{row.UserName}}</td>
+        </ng-container>
+  
+        <!-- Email Column -->
+        <ng-container matColumnDef="ProductName">
+          <th mat-header-cell *matHeaderCellDef>ProductName</th>
+          <td mat-cell *matCellDef="let row">{{row.ProductName}}</td>
+        </ng-container>
+  
+        <!-- FirstName Column -->
+        <ng-container matColumnDef="UnitPrice">
+          <th mat-header-cell *matHeaderCellDef>UnitPrice</th>
+          <td mat-cell *matCellDef="let row">{{row.UnitPrice}}</td>
+        </ng-container>
+
+        <!-- LastName Column -->
+        <ng-container matColumnDef="SupplierName">
+            <th mat-header-cell *matHeaderCellDef>SupplierName</th>
+            <td mat-cell *matCellDef="let row">{{row.SupplierName}}</td>
+          </ng-container>
+
+          <!-- CreatedOn Column -->
+        <ng-container matColumnDef="OrderStatus">
+            <th mat-header-cell *matHeaderCellDef>OrderStatus</th>
+            <td mat-cell *matCellDef="let row">{{row.OrderStatus}}</td>
+          </ng-container>
+  
+
+            <!-- CreatedOn Column -->
+        <ng-container matColumnDef="OrderTyoe">
+            <th mat-header-cell *matHeaderCellDef>OrderTyoe</th>
+            <td mat-cell *matCellDef="let row">{{row.OrderTyoe}}</td>
+          </ng-container>
+
+             <!-- CreatedOn Column -->
+        <ng-container matColumnDef="OrderedOn">
+            <th mat-header-cell *matHeaderCellDef>OrderedOn</th>
+            <td mat-cell *matCellDef="let row">{{row.OrderedOn}}</td>
+          </ng-container>
+
+             <!-- CreatedOn Column -->
+        <ng-container matColumnDef="ShippedOn">
+            <th mat-header-cell *matHeaderCellDef>ShippedOn</th>
+            <td mat-cell *matCellDef="let row">{{row.ShippedOn}}</td>
+          </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+         <tr mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="['/customer-details/', row.UserId]"></tr>
+      </table>
+    </div>
+  </div>
+
