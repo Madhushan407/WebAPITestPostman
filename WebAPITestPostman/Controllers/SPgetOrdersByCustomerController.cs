@@ -6,12 +6,13 @@ using System.Net.Http;
 using System.Web.Http;
 using WebAPITestPostman.Models;
 using System.Web.Http.Description;
+using System.Web.Http.Cors;
 
 namespace WebAPITestPostman.Controllers
 {
     public class SPgetOrdersByCustomerController : ApiController
     {
-       
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         [ResponseType(typeof(SPgetOrdersByCustomer))]
         public IHttpActionResult getOrdersByCustomer(int id)
         {
@@ -26,7 +27,6 @@ namespace WebAPITestPostman.Controllers
                 OrderTyoe = x.OrderType,
                 OrderedOn = x.OrderedOn,
                 ShippedOn = x.ShippedOn
-
 
 
             }).ToList();

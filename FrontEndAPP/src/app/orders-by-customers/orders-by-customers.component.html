@@ -4,9 +4,11 @@
          *ngIf="isLoadingResults">
       <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
     </div>
-    <div class="button-row">
-     </div>
    
+     <div class="button-row">
+      <a mat-flat-button color="primary" [routerLink]="['/customers']"><mat-icon>list</mat-icon></a>&nbsp;
+     </div>
+     
       <div >  
       <table mat-table [dataSource]="data" class="example-table" class="mat-elevation-z8">
             >

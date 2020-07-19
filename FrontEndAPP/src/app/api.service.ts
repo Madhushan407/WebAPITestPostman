@@ -10,6 +10,7 @@ const httpOptions = {
 };
 
 const apiUrl = 'https://localhost:44317/api/Customers';
+const apiUrladd = 'https://localhost:44317/api/Customers/';
 @Injectable({
   providedIn: 'root'
 })
@@ -42,9 +43,9 @@ export class ApiService {
     );
   }
 
-
+ 
   addCustomer(customers: Customers): Observable<Customers> {
-    return this.http.post<Customers>(apiUrl, customers, httpOptions).pipe(
+    return this.http.post<Customers>(apiUrladd, customers, httpOptions).pipe(
       tap((c: Customers) => console.log(`added customers w/ id=${c._id}`)),
       catchError(this.handleError<Customers>('addCustomer'))
     );

@@ -37,14 +37,23 @@ export class EditCustomerComponent implements OnInit {
 
   ngOnInit() {
    this.getCustomerById(this.route.snapshot.params.id);
+   this.customerForm = this.formBuilder.group({
+    Username : [null, Validators.required],
+    Email : [null, Validators.required],
+    FirstName : [null, Validators.required],
+    LastName : [null, Validators.required],
+    CreatedOn : [null, Validators.required],
+    IsActive : [null, Validators.required]
    
+  });
   }
 
   getCustomerById(id: any) {
     this.api.getCustomerById(id).subscribe((data: any) => {
-      this._id = data._id;
+     // this._id = data.UserId;
+     this._id = this._id;
       this.customerForm.setValue({
-        Username: data.Username,
+        Username: data.UserName,
         Email: data.Email,
         FirstName: data.FirstName,
         LastName: data.LastName,
@@ -59,8 +68,10 @@ export class EditCustomerComponent implements OnInit {
   onFormSubmit() {
     this.isLoadingResults = true;
     this.api.updateCustomers(this._id, this.customerForm.value)
+    //this.api.updateCustomers(this.route.snapshot.params.id, this.customerForm.value)
       .subscribe((res: any) => {
           const id = res._id;
+          //const id = this.route.snapshot.params.id;
           this.isLoadingResults = false;
           this.router.navigate(['/customer-details', id]);
         }, (err: any) => {
@@ -70,9 +81,13 @@ export class EditCustomerComponent implements OnInit {
       );
   }
 
+  
+
+
   customersDetails() {
-    this.router.navigate(['/customer-details', this._id]);
+    //this.router.navigate(['/customer-details', this._id]);
+    this.router.navigate(['/customer-details', this.route.snapshot.params.id]);
   }
 
-
+  
 }

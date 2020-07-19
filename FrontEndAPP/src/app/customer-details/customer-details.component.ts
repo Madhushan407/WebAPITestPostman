@@ -31,9 +31,11 @@ export class CustomerDetailsComponent implements OnInit {
   }
 
 
-  deleteCustomer(id: any) {
+ // deleteCustomer(id: any) {
+  deleteCustomer() {
     this.isLoadingResults = true;
-    this.api.deleteCustomers(id)
+    //this.api.deleteCustomers(id)
+    this.api.deleteCustomers(this.route.snapshot.params.id)
       .subscribe(res => {
           this.isLoadingResults = false;
           this.router.navigate(['/customers']);
@@ -44,5 +46,14 @@ export class CustomerDetailsComponent implements OnInit {
       );
   }
 
+  gotoEditcustomer() {
+    //this.router.navigate(['/customer-details', this._id]);
+    this.router.navigate(['/edit-customer', this.route.snapshot.params.id]);
+  }
+  
 
+  gotoOrdersByCustomer() {
+    //this.router.navigate(['/customer-details', this._id]);
+    this.router.navigate(['/ordersbycustomer', this.route.snapshot.params.id]);
+  }
 }

@@ -5,36 +5,39 @@
       <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
     </div>
     <div class="button-row">
-      <a mat-flat-button color="primary" [routerLink]="['/cutomers']"><mat-icon>list</mat-icon></a>&nbsp;
-      <a mat-flat-button color="primary" [routerLink]="['/ordersbycustomer']" style="margin-left: '100px';"> View Orders By Customer</a>
- 
+      <a mat-flat-button color="primary" [routerLink]="['/customers']"><mat-icon>list</mat-icon></a>&nbsp;
+      <!-- <a mat-flat-button color="primary" [routerLink]="['/ordersbycustomer']" style="margin-left: '100px';"> View Orders By Customer</a> -->
+      <a mat-flat-button color="primary" (click)="gotoOrdersByCustomer()" style="margin-left: '100px';"> View Orders By Customer</a>
+
+    
     </div>
     <mat-card class="example-card">
       <mat-card-header>
-        <mat-card-title><h2>{{cutomers.Username}}</h2></mat-card-title>
+        <mat-card-title><h2>{{customers.UserName}}</h2></mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <dl>
           <dt>Email:</dt>
-          <dd>{{cutomers.Email}}</dd>
+          <dd>{{customers.Email}}</dd>
 
           <dt>FirstName:</dt>
-          <dd>{{cutomers.FirstName}}</dd>
+          <dd>{{customers.FirstName}}</dd>
 
           <dt>LastName:</dt>
-          <dd>{{cutomers.LastName}}</dd>
+          <dd>{{customers.LastName}}</dd>
 
           <dt>CreatedOn:</dt>
-          <dd>{{cutomers.CreatedOn}}</dd>
+          <dd>{{customers.CreatedOn}}</dd>
 
           <dt>IsActive:</dt>
-          <dd>{{cutomers.IsActive}}</dd>
+          <dd>{{customers.IsActive}}</dd>
         </dl>
       </mat-card-content>
       
       <mat-card-actions>
-           <a mat-flat-button color="primary" [routerLink]="['/edit-customer/1']"><mat-icon>edit</mat-icon> Edit </a>
-        <a mat-flat-button color="warn" (click)="deleteCustomer(cutomers._id)"><mat-icon>delete</mat-icon> Delete</a>
+           <!--<a mat-flat-button color="primary" [routerLink]="['/edit-customer/_id']"><mat-icon>edit</mat-icon> Edit </a>-->
+           <a mat-flat-button color="primary" (click)="gotoEditcustomer()"><mat-icon>edit</mat-icon> Edit </a>
+        <a mat-flat-button color="warn" (click)="deleteCustomer()"><mat-icon>delete</mat-icon> Delete</a>
         
       </mat-card-actions>
     </mat-card>

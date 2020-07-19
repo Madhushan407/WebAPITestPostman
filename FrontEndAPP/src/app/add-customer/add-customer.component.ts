@@ -40,6 +40,15 @@ export class AddCustomerComponent implements OnInit {
      }
 
   ngOnInit() {
+    this.customerForm = this.formBuilder.group({
+      Username : [null, Validators.required],
+      Email : [null, Validators.required],
+      FirstName : [null, Validators.required],
+      LastName : [null, Validators.required],
+      CreatedOn : [null, Validators.required],
+      IsActive : [null, Validators.required]
+     
+    });
   }
 
   onFormSubmit() {
@@ -48,7 +57,8 @@ export class AddCustomerComponent implements OnInit {
       .subscribe((res: any) => {
           const id = res._id;
           this.isLoadingResults = false;
-          this.router.navigate(['/customer-details', id]);
+         // this.router.navigate(['/customer-details', id]);
+         this.router.navigate(['/customers']);
         }, (err: any) => {
           console.log(err);
           this.isLoadingResults = false;

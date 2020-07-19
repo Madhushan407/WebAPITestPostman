@@ -23,6 +23,7 @@ export class OrdersByCustomersComponent implements OnInit {
 
   ngOnInit() {
     this.api.getOrdersByCustomers(this.route.snapshot.params.id)
+    //this.api.getOrdersByCustomers('1')
     .subscribe((res: any) => {
       this.data = res;
       console.log(this.data);

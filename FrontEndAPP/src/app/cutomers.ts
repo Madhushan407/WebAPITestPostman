@@ -1,6 +1,6 @@
 export class Customers{
- //  _id:string;
-    _id:number;
+   _id:string;
+    //_id:number;
     //UserId:number;
     Username :string;
     Email :string;

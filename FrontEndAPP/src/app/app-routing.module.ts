@@ -28,7 +28,7 @@ const routes: Routes = [
   },
   
   {
-    path: 'ordersbycustomer',
+    path: 'ordersbycustomer/:id',
     component: OrdersByCustomersComponent,
     data: { title: 'Active Orders By Customer' }
   },
